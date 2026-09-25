@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>60秒生存 · 复刻版</title>
+  <link rel="icon" href="data:," />
+  <style>
+    :root { --cream:#F4E9D8; --ink:#2B2B2B; }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; height: 100%; background: var(--ink); }
+    body {
+      display: flex; align-items: center; justify-content: center;
+      background:
+        radial-gradient(rgba(244,233,216,.06) 1px, transparent 1px) 0 0/18px 18px,
+        #2B2B2B;
+      font-family: "PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+    }
+    #game { width: 100%; height: 100%; max-width: 480px; }
+    #game canvas { display: block; margin: 0 auto; }
+  </style>
+</head>
+<body>
+  <div id="game"></div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
