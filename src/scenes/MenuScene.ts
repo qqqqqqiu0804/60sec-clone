@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import { cnWrap } from '../ui/wrap';
 
 const RED = 0xc0392b;
 const INK = 0x2b2b2b;
@@ -53,11 +54,29 @@ export class MenuScene extends Phaser.Scene {
     btn.on('pointerout', () => btn.setFillStyle(RED));
 
     this.add
-      .text(width / 2, height * 0.72 + 56, '手机：点按移动　桌面：WASD / 方向键', {
+      .text(width / 2, height * 0.72 + 56, '手机：点按/拖动移动　桌面：WASD / 方向键', {
         fontFamily: 'PingFang SC, Microsoft YaHei, sans-serif',
         fontSize: '13px',
         color: '#9a9384',
       })
       .setOrigin(0.5);
+
+    // 策略提示（铁律：界面内要给玩家明确指引）
+    const tip = this.add
+      .text(
+        width / 2,
+        height * 0.86,
+        '💡 60 秒里优先抢「电池」：带进避难所就能用收音机呼叫救援。\n顺手救出家人，但搬不动就别贪——槽位有限。',
+        {
+          fontFamily: 'PingFang SC, Microsoft YaHei, sans-serif',
+          fontSize: '13px',
+          color: '#d9cfbd',
+          align: 'center',
+          lineSpacing: 4,
+          ...cnWrap(width - 60),
+        },
+      )
+      .setOrigin(0.5);
+    tip.setShadow(1, 1, '#000');
   }
 }
